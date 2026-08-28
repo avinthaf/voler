@@ -28,7 +28,7 @@ export function registerSessionsCommand(program: Command) {
 
       const model: string = options.model;
       const session = loadSession(id);
-      const history = session.messages as { role: "user" | "assistant"; content: string }[];
+      const history = session.messages as { role: "user" | "assistant" | "system"; content: string }[];
 
       console.log(`\nResuming "${session.name}"\n`);
 
@@ -87,7 +87,7 @@ export function registerSessionsCommand(program: Command) {
     .action(async (id, options) => {
       const model: string = options.model;
       const session = loadSession(id);
-      const history = session.messages as { role: "user" | "assistant"; content: string }[];
+      const history = session.messages as { role: "user" | "assistant" | "system"; content: string }[];
 
       console.log(`Resuming "${session.name}" (${history.length} messages)\n`);
 
